@@ -31,5 +31,15 @@ public class CategoriaServImp implements ICategoriaService {
        categoriaDAO.deleteById(id);
        return "categoria fue eliminada";
     }
+
+    @Override
+    public List<Categoria> cargarOrdenadas() {
+        return categoriaDAO.findAllByOrderByNombreAsc();
+    }
+
+    @Override
+    public List<Categoria> cargarLike(String p) {
+        return categoriaDAO.cualquierNombre(p);
+    }
     
 }
